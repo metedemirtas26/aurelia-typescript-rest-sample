@@ -14,9 +14,9 @@ To get started developing right away:
 
 ## Run with docker in any platform:
 
-create image docker : `build -t aurelia-typescript-rest-sample-image .`
-run container `docker run --name urelia-typescript-rest-sample -d --memory=500m --cpus="1" -p 8087:80 --rm urelia-typescript-rest-sample-image` 
-You can find users on: `http://localhost:8087`
+* create image docker : `build -t aurelia-typescript-rest-sample-image .`
+* run container `docker run --name urelia-typescript-rest-sample -d --memory=500m --cpus="1" -p 8087:80 --rm urelia-typescript-rest-sample-image` 
+* You can find users on: `http://localhost:8087`
 
 
 Mete  | Demirtas
