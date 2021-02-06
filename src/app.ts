@@ -42,6 +42,7 @@ export class App {
           axios.post(environment.api + "/users/create", this.user)
           .then(function (response) {
             base.users.push(response.data);
+            base.reset();
             console.log(response);
           })
           .catch(function (error) {
@@ -71,6 +72,15 @@ export class App {
     .catch(function (error) {
       console.log(error);
     });
+  }
+
+  reset(){
+    this.user.name = '';
+    this.user.familyName = '';
+    this.user.address = '';
+    this.user.eMailAdress = '';
+    this.user.age = null;
+    this.user.countryOfOrigin = '';
   }
 
 }
