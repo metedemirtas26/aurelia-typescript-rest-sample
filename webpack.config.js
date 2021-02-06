@@ -240,9 +240,6 @@ module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, h
     new ModuleDependenciesPlugin({
       'aurelia-testing': ['./compile-spy', './view-spy']
     }),
-    new CopyWebpackPlugin([
-      { from: 'src/locales/', to: 'locales/' }
-    ]),
     new HtmlWebpackPlugin({
       template: 'index.ejs',
       metadata: {
