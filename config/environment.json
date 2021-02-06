@@ -1,0 +1,5 @@
+{
+  "debug": true,
+  "testing": true,
+  "api": "http://cronyapps.de:8086"
+}

@@ -1,0 +1,84 @@
+<template>
+  <div class="container mt-5">
+    <div class="row">
+      <form validation-errors.bind="errors"
+      submit.delegate="addUser()">
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="validate">First name</label>
+            <input type="text" value.bind="user.name & validate:rules" class="form-control" id="name" placeholder="name" required>
+            <span class="error"></span>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault02">Last name</label>
+            <input type="text" value.bind="user.familyName & validate:rules" class="form-control" id="familyName" placeholder="Family Name" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault02">eMail Adress</label>
+            <input type="text" value.bind="user.eMailAdress & validate:rules" class="form-control" id="eMailAdress" placeholder="eMailAdress" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="validationDefault03">City</label>
+            <input type="text" value.bind="user.address & validate:rules" class="form-control" id="validationDefault03" placeholder="Address" required>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationDefault04">CountryOfOrigin</label>
+            <input type="text" value.bind="user.countryOfOrigin" class="form-control" id="validationDefault04" placeholder="State" required>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationDefault05">Age</label>
+            <input type="text" value.bind="user.age & validate:rules" class="form-control" id="validationDefault05" placeholder="age" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-2 mb-3">
+            <label class="form-check-label" for="invalidCheck2">Hired</label>
+          </div>
+          <div class="col-md-2 mb-3">
+            <input class="form-check-input" type="checkbox" value.bind="user.hired" id="hired">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-12 mb-3">
+            <ul if.bind="controller.errors">
+              <li repeat.for="error of controller.errors">
+                  ${error.message}
+              </li>
+          </ul>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Send</button>
+      </form>
+    </div>
+    <div class="row mt-5">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>familyName</th>
+            <th>age</th>
+            <th>countryOfOrigin</th>
+            <th>hired</th>
+            <th>address</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr repeat.for="row of users">
+            <td>${ row.id }</td>
+            <td>${ row.name }</td>
+            <td>${ row.familyName }</td>
+            <td>${ row.age }</td>
+            <td>${ row.countryOfOrigin }</td>
+            <td>${ row.hired }</td>
+            <td>${ row.address }</td>
+            <td><button click.delegate='deleteUser(row.id)' type="button" class="btn btn-danger">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
